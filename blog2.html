@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindful Musings: A Serene Sanctuary for Pilgrims on Life's Sacred Path of Clarity and Compassion</title>
+</head>
+
+
+
+<body>
+    <style>
+        .title {
+            height: 40px;
+            font-size: 200%;
+            background-color: black;
+            color: rgb(244, 223, 200);
+            width: 100%;
+            text-align: center;
+            border-radius: 25px;
+        }
+
+        .blog {
+            background-color: rgb(244, 223, 200);
+            width: 80%;
+            height: 85%;
+            margin-top: 15px;
+            /* margin-left: 120px; */
+            margin: 15px 0 5% 5%;
+            padding: 5%;
+
+            border-radius: 25px;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+
+            font-size: 200%;
+
+        }
+
+        .like-section {
+            margin-bottom: 20px;
+        }
+
+        #like-btn {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #like-btn:hover {
+            background-color: #2980b9;
+        }
+
+        #like-count {
+            color: #555;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .comments-section {
+            border-top: 1px solid #ccc;
+            padding-top: 20px;
+        }
+
+        #comment-input {
+            width: calc(100% - 120px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #comment-btn {
+            background-color: #2ecc71;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #comment-btn:hover {
+            background-color: #27ae60;
+        }
+
+        #comments-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #comments-list li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            #comment-input {
+                width: calc(100% - 100px);
+            }
+        }
+
+        #remove-likes-btn,
+        #remove-comments-btn {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #remove-likes-btn:hover,
+        #remove-comments-btn:hover {
+            background-color: #c0392b;
+        }
+    </style>
+    <header class="title">"Mindful Musings: A Serene Sanctuary for Pilgrims on Life's Sacred Path of Clarity and
+        Compassion"</header>
+
+
+    <div class="blog">
+
+
+        <p>Step into the tranquil oasis of introspection and embark on a sacred pilgrimage of self-discovery with
+            "Mindful
+            Musings." Amidst the cacophony of modern existence, this sanctuary offers refuge to weary souls,
+            illuminating
+            the path towards inner peace, clarity, and compassion. Grounded in the timeless wisdom of mindfulness,
+            "Mindful
+            Musings" is a sacred repository of ancient teachings and contemporary insights, empowering pilgrims to
+            navigate
+            life's labyrinth with grace and wisdom. From meditative practices and contemplative reflections to mindful
+            living in relationships, work, and self-care, each musing is a tender invitation to embrace the present
+            moment
+            with open-hearted awareness and profound reverence. Join us in this sacred journey of awakening, where every
+            breath becomes a prayer, and every step leads us closer to the divine essence within.</p>
+    </div>
+
+    <div class="like-section">
+        <button id="like-btn">Like</button>
+        <button id="remove-likes-btn">Remove All Likes</button>
+        <span id="like-count">0</span> Likes
+    </div>
+    <div class="comments-section">
+        <h3>Comments</h3>
+        <input type="text" id="comment-input" placeholder="Write a comment...">
+        <button id="comment-btn">Add Comment</button>
+        <button id="remove-comments-btn">Remove All Comments</button>
+        <ul id="comments-list"></ul>
+    </div>
+
+    <script>
+        // Load like count from local storage
+        let likeCount = parseInt(localStorage.getItem('likeCount')) || 0;
+        document.getElementById('like-count').textContent = likeCount;
+
+        // Increment like count and save to local storage
+        document.getElementById('like-btn').addEventListener('click', function () {
+            likeCount++;
+            document.getElementById('like-count').textContent = likeCount;
+            localStorage.setItem('likeCount', likeCount);
+        });
+
+        // Remove all likes
+        document.getElementById('remove-likes-btn').addEventListener('click', function () {
+            likeCount = 0;
+            document.getElementById('like-count').textContent = likeCount;
+            localStorage.removeItem('likeCount');
+        });
+
+        // Load comments from local storage
+        let comments = JSON.parse(localStorage.getItem('comments')) || [];
+
+        // Display comments
+        const displayComments = () => {
+            const commentsList = document.getElementById('comments-list');
+            commentsList.innerHTML = '';
+            comments.forEach(comment => {
+                const li = document.createElement('li');
+                li.textContent = comment;
+                commentsList.appendChild(li);
+            });
+        }
+
+        displayComments();
+
+        // Add comment
+        document.getElementById('comment-btn').addEventListener('click', function () {
+            const commentInput = document.getElementById('comment-input');
+            const commentText = commentInput.value.trim();
+            if (commentText !== '') {
+                comments.push(commentText);
+                localStorage.setItem('comments', JSON.stringify(comments));
+                displayComments();
+                commentInput.value = '';
+            }
+        });
+
+        // Remove all comments
+        document.getElementById('remove-comments-btn').addEventListener('click', function () {
+            comments = [];
+            localStorage.removeItem('comments');
+            displayComments();
+        });
+
+    </script>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+
+    <script src="https://kit.fontawesome.com/e47be0186a.js" crossorigin="anonymous"></script>
+
+    <label class="switch" id="switch" onclick="onToggle()">
+        <input type="checkbox" onclick="onToggle()">
+        <span class="slider"></span>
+    </label>
+
+</head>
+
+<body>
+    <header id="myHeader" class="sticky">
+        <a href="#About">
+            <h2 class="links">About Me</h2>
+        </a>
+        <a href="#Education">
+            <h2 class="links">Education</h2>
+        </a>
+        <a href="#Achievements">
+            <h2 class="links">Achievements</h2>
+        </a>
+        <a href="#Skills">
+            <h2 class="links">Skills</h2>
+        </a>
+        <a href="#Blogs">
+            <h2 class="links">Blogs</h2>
+        </a>
+    </header>
+
+    <div class="parent">
+        <div class="container" id="About">
+            <h1> Hi!! <br> I am Manas.</h1>
+            <img id="profile" src="image.jpg" alt="Profile Image">
+            <h2 id="role">Student @ IIITH Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate incidunt
+                tempora magni aliquid, debitis excepturi? Provident hic facere architecto itaque optio molestiae fuga
+                deserunt, sunt dolore nulla dolor perferendis dignissimos!</h2>
+
+            <div class="hyperlinks">
+                <a href="https://www.instagram.com/manas_27392?igsh=N3hibm9pM3E0OW13">
+                    <i class="fa-brands fa-instagram fa-xl" style="color: #9d6321;"></i></a>
+
+                <a href="https://github.com/Manas-7854">
+                    <i class="fa-brands fa-github fa-xl" style="color: #9d6321;"></i></a>
+                <a href="https://www.linkedin.com/in/manas-agrawal-8977a8218/">
+                    <i class="fa-brands fa-linkedin fa-xl" style="color: #9d6321;"></i></a>
+
+                <a href="mailto:manas.agrawal@research.iiit.ac.in" >
+                    <i class="fa-solid fa-envelope fa-xl" style="color: #9d6321;"></i>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="container" id="Education">
+            <UL>
+                <h1>Education: </h1>
+                <li>The Lovedale Senior Secondary School, Satna (M.P.) [2007 - 2021]</li>
+                <li>Maa Bharti Senior Secondary School, Kota (Rajasthan) [2021 - 2023]</li>
+                <li>IIIT Hyderabad, Hyderabad (Telangana) [ 2023 - 20?? ]</li>
+            </UL>
+        </div>
+
+
+        <div class="container" id="Achievements">
+            <ul>
+                <h1>Achievements: </h1>
+                <a href="A1.pdf"><li>This Assignment (Click to see)</li></a>
+                <li>Survived Cis-1 Course</li>
+                <li>Winner of Inter-Section Drawing Competition in Class 2nd</li>
+            </ul>
+        </div>
+
+        <div class="container" id="Skills">
+            <ul>
+                <h1>Skills: </h1>
+                <li>C/C++ <br> (Experience Level: Basic)</li>
+                <li>HTML/CSS <br> (Experience Level: Basic)</li>
+                <li>Game Development <br> (Experience Level: Basic)</li>
+            </ul>
+        </div>
+
+        <div class="container" id="Blogs">
+            <ul>
+                <h1>Blogs: </h1>
+                <a href="blog1.html"><li>Wandering Words: Exploring the World Through Literature</li></a>
+                <a href="blog2.html"><li>Mindful Musings: Navigating Life with Clarity and Compassion</li></a>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function onToggle() {
+
+            document.body.classList.toggle('lightMode');
+        }
+    </script>
+
+
+</body>
+
+</html>
